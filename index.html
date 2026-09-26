@@ -101,7 +101,7 @@ body[data-screen="play"] .dim{background:rgba(3,7,20,.72)}
 .screen{position:absolute;inset:0;display:none;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
 .screen.on{display:flex;animation:scr .22s ease-out}
 @keyframes scr{from{opacity:0;transform:scale(1.012)}to{opacity:1;transform:none}}
-.page{flex-direction:column;align-items:center;justify-content:center;padding-top:calc(calc(var(--u)*8.6) + env(safe-area-inset-top));padding-bottom:calc(var(--u)*2.2)}
+.page{flex-direction:column;align-items:center;justify-content:safe center;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:calc(calc(var(--u)*8.6) + env(safe-area-inset-top));padding-bottom:calc(var(--u)*2.2)}
 
 /* ---------- HOME ---------- */
 .home{flex-direction:column;align-items:center;justify-content:center;padding-bottom:calc(var(--u)*.6)}
@@ -411,8 +411,6 @@ textarea.field{height:calc(var(--u)*20);padding:calc(var(--u)*1.2);font-family:v
 .mtile b{display:block;font-weight:700;font-size:calc(var(--u)*2.8);line-height:1.05;white-space:nowrap}
 .mtile span{display:block;margin-top:calc(var(--u)*.4);font-weight:600;font-size:calc(var(--u)*1.45);line-height:1.3;letter-spacing:.05em;text-transform:uppercase;color:#c3d0ee}
 
-body[data-screen="more"] .page,body[data-screen="wordlist"] .page,#s-scores.empty.page{justify-content:center}
-
 #confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:45}
 
 /* ---------- PORTRAIT ---------- */
@@ -426,7 +424,7 @@ body[data-screen="more"] .page,body[data-screen="wordlist"] .page,#s-scores.empt
   .mode{width:calc(var(--u)*26);height:calc(var(--u)*22)}
   .subs{gap:calc(var(--u)*1.6)}
   .sub{width:calc(var(--u)*11)}
-  .page{justify-content:flex-start;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:calc(calc(var(--u)*9) + env(safe-area-inset-top));padding-bottom:calc(var(--u)*4)}
+  .page{padding-top:calc(calc(var(--u)*9) + env(safe-area-inset-top));padding-bottom:calc(var(--u)*4)}
   .setup,.res{grid-template-columns:1fr}
   .cats{grid-template-columns:repeat(3,1fr)}
   .setgrid,.more,.notes{grid-template-columns:1fr}
@@ -1124,7 +1122,7 @@ body[data-screen="more"] .page,body[data-screen="wordlist"] .page,#s-scores.empt
 /* =========================================================
    CONFIG — change here
    ========================================================= */
-const VERSION = "1.7";
+const VERSION = "1.8";
 const CONFIG = {
   // Google Apps Script web app URL (ends with /exec). See GUESS_IT_Code.gs.
   // A published Google Sheets CSV URL works too.
@@ -1946,7 +1944,6 @@ function renderScores() {
   $('#hs-tabs').innerHTML = segHTML([['all', 'ALL']].concat(CONFIG.TIMES.map(t => [t, t, 'SEC'])), hsFilter);
   const list = HighScores.list().filter(r => hsFilter === 'all' || String(r.time) === String(hsFilter)).slice(0, 10);
   $('#hs-clear').hidden = !HighScores.list().length;
-  $('#s-scores').classList.toggle('empty', !list.length);
   if (!list.length) {
     $('#hs-body').innerHTML = `<div class="panel hs-empty">
       <svg viewBox="0 0 120 108" aria-hidden="true"><g fill="#0d1a3c" stroke="#24407e" stroke-width="2" stroke-linejoin="round">
