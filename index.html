@@ -252,6 +252,9 @@ body.large .timer{font-size:calc(var(--u)*7)}
 .word{max-width:92vw;text-align:center;font-weight:700;line-height:.95;letter-spacing:.005em;color:#fff;text-shadow:0 calc(var(--u)*.5) 0 rgba(0,0,0,.35),0 0 calc(var(--u)*5) rgba(80,140,255,.4);white-space:nowrap;overflow-wrap:normal}
 .pause{position:absolute;top:calc(calc(var(--u)*2.2) + env(safe-area-inset-top));left:calc(var(--u)*2.4);width:calc(var(--u)*6);height:calc(var(--u)*6);border-radius:50%;background:rgba(255,255,255,.07);border:calc(var(--u)*.14) solid var(--line);display:grid;place-items:center;opacity:.7;z-index:2}
 .pause svg{width:calc(var(--u)*2.2);height:calc(var(--u)*2.2);fill:#fff}
+.undo{position:absolute;top:calc(calc(var(--u)*2.2) + env(safe-area-inset-top));right:calc(var(--u)*2.4);width:calc(var(--u)*6);height:calc(var(--u)*6);border-radius:50%;background:rgba(255,255,255,.07);border:calc(var(--u)*.14) solid var(--line);display:grid;place-items:center;opacity:.7;z-index:2}
+.undo svg{width:calc(var(--u)*2.4);height:calc(var(--u)*2.4);color:#fff}
+.undo[hidden]{display:none}
 .taphint{position:absolute;bottom:calc(calc(var(--u)*2.4) + env(safe-area-inset-bottom));display:flex;align-items:center;gap:calc(var(--u)*.8);font-weight:700;font-size:calc(var(--u)*1.9);letter-spacing:.16em;color:var(--tone);opacity:.6;pointer-events:none}
 .taphint::before{content:"";width:calc(var(--u)*1.2);height:calc(var(--u)*1.2);border-radius:50%;background:var(--tone)}
 .taphint.l{left:calc(var(--u)*3)}.taphint.r{right:calc(var(--u)*3);flex-direction:row-reverse}
@@ -449,6 +452,7 @@ textarea.field{height:calc(var(--u)*20);padding:calc(var(--u)*1.2);font-family:v
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5L19.5 7" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h14M13 6.5l5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="M7.5 5.5v4.5H3" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.7 10A8.3 8.3 0 1 1 5.2 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
     <symbol id="i-book" viewBox="0 0 36 30"><path d="M3 5c5-2.6 10-2.1 14 1v21c-4-3-9-3.5-14-1.5z"/><path d="M33 5c-5-2.6-10-2.1-14 1v21c4-3 9-3.5 14-1.5z"/><path d="M6.5 10.5c2.5-.8 5-.6 7 .5M6.5 15c2.5-.8 5-.6 7 .5M6.5 19.5c2.5-.8 5-.6 7 .5M29.5 10.5c-2.5-.8-5-.6-7 .5M29.5 15c-2.5-.8-5-.6-7 .5M29.5 19.5c-2.5-.8-5-.6-7 .5" stroke="#141c33" stroke-width="1.5" stroke-linecap="round" fill="none"/></symbol>
     <symbol id="i-trophy" viewBox="0 0 32 32"><path d="M9 3h14v8a7 7 0 0 1-14 0z"/><path d="M9 6H4.6v2a5.5 5.5 0 0 0 5.4 5.5M23 6h4.4v2a5.5 5.5 0 0 1-5.4 5.5" fill="none" stroke="currentColor" stroke-width="2.4"/><rect x="14.2" y="17" width="3.6" height="5.5"/><path d="M9.5 29.5v-3a3.5 3.5 0 0 1 3.5-3.5h6a3.5 3.5 0 0 1 3.5 3.5v3z"/></symbol>
     <symbol id="i-gear" viewBox="0 0 32 32"><mask id="gearHole"><rect width="32" height="32" fill="#fff"/><circle cx="16" cy="16" r="4.2" fill="#000"/></mask><g mask="url(#gearHole)"><circle cx="16" cy="16" r="9.6"/><rect x="13.3" y="1.8" width="5.4" height="7" rx="1.3"/><rect x="13.3" y="1.8" width="5.4" height="7" rx="1.3" transform="rotate(45 16 16)"/><rect x="13.3" y="1.8" width="5.4" height="7" rx="1.3" transform="rotate(90 16 16)"/><rect x="13.3" y="1.8" width="5.4" height="7" rx="1.3" transform="rotate(135 16 16)"/><rect x="13.3" y="1.8" width="5.4" height="7" rx="1.3" transform="rotate(180 16 16)"/><rect x="13.3" y="1.8" width="5.4" height="7" rx="1.3" transform="rotate(225 16 16)"/><rect x="13.3" y="1.8" width="5.4" height="7" rx="1.3" transform="rotate(270 16 16)"/><rect x="13.3" y="1.8" width="5.4" height="7" rx="1.3" transform="rotate(315 16 16)"/></g></symbol>
@@ -652,6 +656,7 @@ textarea.field{height:calc(var(--u)*20);padding:calc(var(--u)*1.2);font-family:v
   <!-- ============ PLAY ============ -->
   <section class="screen play" id="s-play" aria-label="Play">
     <button class="pause" id="pause-btn" aria-label="Pause"><svg><use href="#i-pause"/></svg></button>
+    <button class="undo" id="undo-btn" aria-label="Undo last answer" hidden><svg><use href="#i-undo"/></svg></button>
     <div class="timer" id="timer">01:00</div>
     <div class="word" id="word"></div>
     <div class="taphint l" id="hint-l"></div>
@@ -750,6 +755,7 @@ textarea.field{height:calc(var(--u)*20);padding:calc(var(--u)*1.2);font-family:v
       </div>
       <div class="notes">
         <div class="panel note"><b>TAP CONTROL</b><p id="how-tap"></p></div>
+        <div class="panel note"><b>MISTAKE?</b><p>Tap the ↺ button at the top of the screen to undo the last word and try it again.</p></div>
         <div class="panel note"><b>TEAM BATTLE</b><p>Each team plays one round with the same word list. More correct answers wins.</p></div>
         <div class="panel note"><b>ENGLISH ONLY</b><p>Pick this rule in the setup screen to give every clue in English.</p></div>
       </div>
@@ -1114,7 +1120,7 @@ textarea.field{height:calc(var(--u)*20);padding:calc(var(--u)*1.2);font-family:v
 /* =========================================================
    CONFIG — change here
    ========================================================= */
-const VERSION = "1.5";
+const VERSION = "1.6";
 const CONFIG = {
   // Google Apps Script web app URL (ends with /exec). See GUESS_IT_Code.gs.
   // A published Google Sheets CSV URL works too.
@@ -1706,6 +1712,7 @@ function startPlay() {
   const setHint = (el, a) => { el.textContent = a === 'correct' ? 'CORRECT' : 'PASS'; el.className = el.className.replace(/\b(ok|ng)\b/g, '').trim() + ' ' + (a === 'correct' ? 'ok' : 'ng'); };
   setHint(hl, sideAction(true)); setHint(hr, sideAction(false));
   $('#timer').className = 'timer';
+  updateUndoBtn();
   show('play');
   nextWord();
   cancelAnimationFrame(G.raf);
@@ -1787,6 +1794,21 @@ function judge(kind) {
   buzz(kind === 'correct' ? 60 : [30, 40, 30]);
   clearTimeout(G.flashT);
   G.flashT = setTimeout(() => { if (G.running) nextWord(); f.className = 'flash'; }, CONFIG.FLASH_MS);
+  updateUndoBtn();
+}
+function updateUndoBtn() { $('#undo-btn').hidden = !G.history.length; }
+function undoLast() {
+  if (!G.running || G.paused || !G.history.length) return;
+  if (now() < G.flashUntil) { clearTimeout(G.flashT); G.flashUntil = 0; $('#flash').className = 'flash'; }
+  const last = G.history.pop();
+  if (last.result === 'correct') G.correct = Math.max(0, G.correct - 1); else G.pass = Math.max(0, G.pass - 1);
+  G.current = { word: last.word, ja: last.ja };
+  G.tilt.state = 'locked'; G.tilt.since = 0;
+  $('#word').textContent = last.word.toUpperCase();
+  fitWord();
+  Sound.play('click');
+  buzz(30);
+  updateUndoBtn();
 }
 function pauseGame() {
   if (!G.running || G.paused) return;
@@ -2133,12 +2155,13 @@ function bind() {
 
   // play — tap control
   $('#s-play').addEventListener('pointerdown', e => {
-    if (e.target.closest('.pause')) return;
+    if (e.target.closest('.pause') || e.target.closest('.undo')) return;
     if (G.control !== 'tap' || !G.running) return;
     e.preventDefault();
     judge(sideAction(e.clientX < window.innerWidth / 2));
   });
   $('#pause-btn').addEventListener('click', () => pauseGame());
+  $('#undo-btn').addEventListener('click', () => undoLast());
   $('#resume-btn').addEventListener('click', () => resumeGame());
   $('#quit-btn').addEventListener('click', () => goHome());
 
@@ -2147,6 +2170,7 @@ function bind() {
       if (e.key === 'ArrowLeft') { e.preventDefault(); if (!e.repeat) judge(sideAction(true)); }
       else if (e.key === 'ArrowRight') { e.preventDefault(); if (!e.repeat) judge(sideAction(false)); }
       else if (e.key === 'Escape' || e.key === ' ') { e.preventDefault(); G.paused ? resumeGame() : pauseGame(); }
+      else if (e.key === 'Backspace' || e.key === 'z') { e.preventDefault(); if (!e.repeat) undoLast(); }
     } else if (G.phase === 'forehead' && (e.key === ' ' || e.key === 'Enter')) {
       e.preventDefault(); runCountdown();
     }
