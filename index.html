@@ -144,15 +144,16 @@ body[data-screen="play"] .dim{background:rgba(3,7,20,.72)}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 
 /* ---------- SHARED ---------- */
-.top{position:absolute;top:calc(calc(var(--u)*2) + env(safe-area-inset-top));left:calc(var(--u)*2.6);right:calc(var(--u)*2.6);height:calc(var(--u)*5);display:flex;align-items:center;gap:calc(var(--u)*2);z-index:3}
+.top{position:absolute;top:calc(calc(var(--u)*2) + env(safe-area-inset-top));left:calc(var(--u)*2.6);right:calc(var(--u)*2.6);height:calc(var(--u)*5);display:flex;align-items:center;gap:calc(var(--u)*1.3);z-index:3}
 .back{height:calc(var(--u)*4.8);padding:0 calc(var(--u)*1.8) 0 calc(var(--u)*1.2);border-radius:calc(var(--u)*1.1);background:rgba(14,21,40,.88);border:calc(var(--u)*.14) solid var(--line);display:flex;align-items:center;gap:calc(var(--u)*.5);font-weight:700;font-size:calc(var(--u)*1.9);letter-spacing:.06em;color:#dfe8ff;flex:none}
 .back svg{width:calc(var(--u)*2.1);height:calc(var(--u)*2.1)}
-.ttl{position:relative;flex:none;margin:0;padding-bottom:calc(var(--u)*.5);font-style:italic;font-weight:700;font-size:calc(var(--u)*4.4);line-height:1;letter-spacing:.01em;color:var(--acc);text-shadow:0 calc(var(--u)*.3) calc(var(--u)*.9) rgba(0,0,0,.75);white-space:nowrap}
+.ttl{position:relative;flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;margin:0;padding-bottom:calc(var(--u)*.5);font-style:italic;font-weight:700;font-size:calc(var(--u)*4);line-height:1;letter-spacing:.01em;color:var(--acc);text-shadow:0 calc(var(--u)*.3) calc(var(--u)*.9) rgba(0,0,0,.75);white-space:nowrap}
 .ttl::after{content:"";position:absolute;left:calc(var(--u)*.35);right:calc(var(--u)*.9);bottom:0;height:calc(var(--u)*.3);border-radius:calc(var(--u)*1);background:var(--acc);opacity:.85}
 .ttl.ta,.ttl.tb{color:var(--tc)}
 .ttl.ta::after,.ttl.tb::after{background:var(--tc)}
-.rule{flex:1;min-width:calc(var(--u)*2);height:calc(var(--u)*.16);background:linear-gradient(90deg,var(--acc),rgba(140,175,255,.14) 55%,transparent);opacity:.55;border-radius:calc(var(--u)*1)}
-.top .aside{flex:none;font-weight:700;font-size:calc(var(--u)*1.7);letter-spacing:.14em;color:var(--muted);white-space:nowrap}
+.rule{flex:1;min-width:0;height:calc(var(--u)*.16);background:linear-gradient(90deg,var(--acc),rgba(140,175,255,.14) 55%,transparent);opacity:.55;border-radius:calc(var(--u)*1)}
+.top .aside{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;font-weight:700;font-size:calc(var(--u)*1.7);letter-spacing:.14em;color:var(--muted);white-space:nowrap}
+.top .aside.pill{flex:0 1 auto;min-width:calc(var(--u)*3);height:calc(var(--u)*3.2);padding:0 calc(var(--u)*.8);border-radius:999px;background:rgba(255,255,255,.08);border:calc(var(--u)*.12) solid var(--line);display:flex;align-items:center;justify-content:center;letter-spacing:0;font-size:calc(var(--u)*1.5);color:#dfe8ff}
 .wrap{width:min(94vw,calc(var(--u)*92));display:flex;flex-direction:column;gap:calc(var(--u)*1.6)}
 .panel{background:linear-gradient(180deg,rgba(18,28,52,.88),rgba(8,13,28,.92));border:calc(var(--u)*.14) solid var(--line);border-radius:calc(var(--u)*1.8);padding:calc(var(--u)*1.9) calc(var(--u)*2.2);box-shadow:0 calc(var(--u)*1.2) calc(var(--u)*3) rgba(0,0,0,.35)}
 .lbl{margin:0 0 calc(var(--u)*.9);font-weight:700;font-size:calc(var(--u)*1.55);letter-spacing:.16em;color:var(--muted)}
@@ -293,6 +294,7 @@ body.large .timer{font-size:calc(var(--u)*7)}
 .fteam.win{transform:scale(1.05)}
 .fteam.win .cheer{display:block}
 .fteam.lose{opacity:.55}
+.final .vs{position:relative;z-index:2;width:2.4em;height:2.4em;display:flex;align-items:center;justify-content:center;margin:0 auto;border-radius:50%;background:radial-gradient(circle,rgba(10,15,32,.95),rgba(10,15,32,.8));border:calc(var(--u)*.16) solid rgba(255,210,63,.55)}
 .winner{margin:0;font-family:var(--f-title);font-weight:400;font-size:calc(var(--u)*8);line-height:1.05;color:var(--yellow);transform:rotate(-3deg);text-shadow:0 calc(var(--u)*.45) 0 #3a2a00,0 0 calc(var(--u)*4) rgba(255,210,63,.5);text-align:center;max-width:94vw;overflow-wrap:anywhere}
 
 /* ---------- HOW TO PLAY ---------- */
@@ -409,6 +411,8 @@ textarea.field{height:calc(var(--u)*20);padding:calc(var(--u)*1.2);font-family:v
 .mtile b{display:block;font-weight:700;font-size:calc(var(--u)*2.8);line-height:1.05;white-space:nowrap}
 .mtile span{display:block;margin-top:calc(var(--u)*.4);font-weight:600;font-size:calc(var(--u)*1.45);line-height:1.3;letter-spacing:.05em;text-transform:uppercase;color:#c3d0ee}
 
+body[data-screen="more"] .page,body[data-screen="wordlist"] .page,#s-scores.empty.page{justify-content:center}
+
 #confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:45}
 
 /* ---------- PORTRAIT ---------- */
@@ -433,7 +437,7 @@ textarea.field{height:calc(var(--u)*20);padding:calc(var(--u)*1.2);font-family:v
   .wlist{grid-template-columns:1fr 1fr;max-height:none}
   .addrow{grid-template-columns:1fr 1fr}
   .ctl-tiles{grid-template-columns:1fr}
-  .final{grid-template-columns:1fr;gap:calc(var(--u)*1.4)}
+  .final{grid-template-columns:1fr;gap:calc(var(--u)*2.2)}
   .hist{max-height:none}
   .hs-head{flex-wrap:wrap}
 }
@@ -782,7 +786,7 @@ textarea.field{height:calc(var(--u)*20);padding:calc(var(--u)*1.2);font-family:v
 
   <!-- ============ CUSTOM WORDS ============ -->
   <section class="screen page" id="s-words" data-mode="util" aria-label="Custom words">
-    <header class="top"><button class="back" id="words-back"><svg><use href="#i-back"/></svg><span>BACK</span></button><h2 class="ttl">CUSTOM WORDS</h2><i class="rule"></i><span class="aside" id="words-count"></span></header>
+    <header class="top"><button class="back" id="words-back"><svg><use href="#i-back"/></svg><span>BACK</span></button><h2 class="ttl">CUSTOM WORDS</h2><i class="rule"></i><span class="aside pill" id="words-count"></span></header>
     <div class="wrap">
       <div class="panel addrow">
         <input class="field" id="w-word" placeholder="WORD" maxlength="32" autocomplete="off" spellcheck="false" autocapitalize="characters">
@@ -1120,7 +1124,7 @@ textarea.field{height:calc(var(--u)*20);padding:calc(var(--u)*1.2);font-family:v
 /* =========================================================
    CONFIG — change here
    ========================================================= */
-const VERSION = "1.6";
+const VERSION = "1.7";
 const CONFIG = {
   // Google Apps Script web app URL (ends with /exec). See GUESS_IT_Code.gs.
   // A published Google Sheets CSV URL works too.
@@ -1942,6 +1946,7 @@ function renderScores() {
   $('#hs-tabs').innerHTML = segHTML([['all', 'ALL']].concat(CONFIG.TIMES.map(t => [t, t, 'SEC'])), hsFilter);
   const list = HighScores.list().filter(r => hsFilter === 'all' || String(r.time) === String(hsFilter)).slice(0, 10);
   $('#hs-clear').hidden = !HighScores.list().length;
+  $('#s-scores').classList.toggle('empty', !list.length);
   if (!list.length) {
     $('#hs-body').innerHTML = `<div class="panel hs-empty">
       <svg viewBox="0 0 120 108" aria-hidden="true"><g fill="#0d1a3c" stroke="#24407e" stroke-width="2" stroke-linejoin="round">
@@ -2024,7 +2029,8 @@ function openWords(from) {
 }
 function renderWords() {
   const list = WordBank.custom;
-  $('#words-count').textContent = `${list.length} WORDS`;
+  $('#words-count').textContent = String(list.length);
+  $('#words-count').setAttribute('aria-label', `${list.length} custom words`);
   $('#w-export').disabled = $('#w-clear').disabled = !list.length;
   $('#w-list').innerHTML = list.length
     ? list.map((w, i) => `<li><div class="w"><b>${esc(w.word.toUpperCase())}</b><small>${esc(w.category)}${w.ja ? ` · <em>${esc(w.ja)}</em>` : ''}</small></div><button class="del" data-del="${i}" aria-label="Delete ${esc(w.word)}">${icon('i-x')}</button></li>`).join('')
