@@ -124,7 +124,7 @@ body[data-screen="play"] .dim{background:rgba(3,7,20,.72)}
 .m-team .plate span{color:#ff9d7b}
 .plate span svg{width:calc(var(--u)*2.3);height:calc(var(--u)*2.3);fill:#fff}
 .subs{display:flex;gap:calc(var(--u)*2.2);margin-top:calc(var(--u)*2.4)}
-.sub{width:calc(var(--u)*9.8);height:calc(var(--u)*8);border-radius:calc(var(--u)*1.4);background:linear-gradient(180deg,#202b47,#10172b);border:calc(var(--u)*.14) solid rgba(170,195,255,.32);box-shadow:inset 0 calc(var(--u)*.14) 0 rgba(255,255,255,.12),0 calc(var(--u)*.6) calc(var(--u)*1.6) rgba(0,0,0,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(var(--u)*.7);color:#e8eeff;transition:transform .12s,border-color .2s}
+.sub{width:calc(var(--u)*9.8);height:calc(var(--u)*8.8);border-radius:calc(var(--u)*1.4);background:linear-gradient(180deg,#202b47,#10172b);border:calc(var(--u)*.14) solid rgba(170,195,255,.32);box-shadow:inset 0 calc(var(--u)*.14) 0 rgba(255,255,255,.12),0 calc(var(--u)*.6) calc(var(--u)*1.6) rgba(0,0,0,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(var(--u)*.7);color:#e8eeff;transition:transform .12s,border-color .2s}
 .sub svg{width:calc(var(--u)*3.5);height:calc(var(--u)*3.5);fill:currentColor}
 .sub span{font-weight:600;font-size:calc(var(--u)*1.55);letter-spacing:.04em;white-space:nowrap}
 .sub:active{transform:scale(.95)}
@@ -303,7 +303,7 @@ body.large .timer{font-size:calc(var(--u)*7)}
 .step .num{order:1;font-weight:700;font-size:calc(var(--u)*1.4);letter-spacing:.2em;color:var(--acc);opacity:.8}
 .step .art{order:0;position:relative;height:calc(var(--u)*12.4);margin-bottom:calc(var(--u)*.5);border-radius:calc(var(--u)*1.2);overflow:hidden;background:radial-gradient(ellipse 70% 80% at 50% 70%,rgba(64,122,244,.42),rgba(8,16,38,0) 74%),linear-gradient(180deg,rgba(14,26,58,.75),rgba(5,10,26,.35))}
 .step .art::after{content:"";position:absolute;left:12%;right:12%;bottom:calc(var(--u)*1.4);height:calc(var(--u)*.14);background:linear-gradient(90deg,transparent,rgba(120,170,255,.4),transparent)}
-.step .art svg{width:100%;height:100%;filter:drop-shadow(0 0 calc(var(--u)*.22) rgba(150,200,255,.9)) drop-shadow(0 0 calc(var(--u)*1) rgba(70,130,255,.55))}
+.step .art svg{display:block;width:92%;height:92%;margin:4% auto 0;filter:drop-shadow(0 0 calc(var(--u)*.22) rgba(150,200,255,.9)) drop-shadow(0 0 calc(var(--u)*1) rgba(70,130,255,.55))}
 .step .fig{fill:#04070c;stroke:#04070c;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
 .step .fig .limb{fill:none;stroke:#04070c;stroke-width:12;stroke-linecap:round}
 .step .pad{fill:rgba(90,150,255,.14)}
@@ -1122,7 +1122,7 @@ textarea.field{height:calc(var(--u)*20);padding:calc(var(--u)*1.2);font-family:v
 /* =========================================================
    CONFIG — change here
    ========================================================= */
-const VERSION = "1.8";
+const VERSION = "1.9";
 const CONFIG = {
   // Google Apps Script web app URL (ends with /exec). See GUESS_IT_Code.gs.
   // A published Google Sheets CSV URL works too.
